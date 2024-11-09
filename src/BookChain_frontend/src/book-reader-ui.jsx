@@ -41,7 +41,7 @@ const BookReaderUI = () => {
         <div className="mb-6">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-lg font-semibold">On Reading</h2>
-            <span className="text-blue-500">See all</span>
+            <span className="text-neutral-500">See all</span>
           </div>
           <div className="flex gap-4 overflow-x-auto">
             {books.slice(0, 2).map((book, i) => (
