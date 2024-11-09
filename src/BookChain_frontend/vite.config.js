@@ -4,6 +4,8 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import environment from 'vite-plugin-environment';
 import dotenv from 'dotenv';
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 
 dotenv.config({ path: '../../.env' });
 
@@ -21,7 +23,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://127.0.0.1:4943",
+        target: "http://127.0.0.1:8000",
         changeOrigin: true,
       },
     },
@@ -31,6 +33,23 @@ export default defineConfig({
     environment("all", { prefix: "CANISTER_" }),
     environment("all", { prefix: "DFX_" }),
   ],
+  css: {
+    postcss: {
+      plugins: [
+        tailwindcss({
+          content: [
+            "./index.html",
+            "./src/**/*.{js,jsx}",
+          ],
+          theme: {
+            extend: {},
+          },
+          plugins: [],
+        }),
+        autoprefixer(),
+      ],
+    },
+  },
   test: {
     environment: 'jsdom',
     setupFiles: 'src/setupTests.js',
