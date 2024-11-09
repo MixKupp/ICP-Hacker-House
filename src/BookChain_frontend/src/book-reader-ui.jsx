@@ -1,5 +1,7 @@
 import React from 'react';
 import { Bell, Search, Home, Book, User, ChevronLeft, ChevronRight, Rewind, FastForward, Play, Pause } from 'lucide-react';
+import SearchInput from './components/home/SearchInput';
+import OnReadDiv from './components/home/OnReadDiv';
 
 const BookReaderUI = () => {
   const [isMobileView, setIsMobileView] = React.useState(window.innerWidth < 768);
@@ -15,11 +17,11 @@ const BookReaderUI = () => {
   }, []);
 
   const books = [
-    { title: "The Psychology of Money", author: "Morgan Housel", rating: 4.4, progress: "262" },
-    { title: "Sapiens", author: "Yuval Noah Harari", rating: 4.5 },
-    { title: "The Design Of Everyday Things", author: "Don Norman", rating: 4.6 },
-    { title: "Fairy Tale", author: "Stephen King", rating: 4.7 },
-    { title: "Earth", author: "Tere Liye", rating: 4.5 }
+    { title: "The Psychology of Money", author: "Morgan Housel", rating: 4.4, progress: "262", url: "https://m.media-amazon.com/images/I/5128O6TZNQL.null_SY250_.jpg" },
+    { title: "Sapiens", author: "Yuval Noah Harari", rating: 4.5, url: "https://m.media-amazon.com/images/I/51Bkboo3WqL.null_SY250_.jpg" },
+    { title: "The Design Of Everyday Things", author: "Don Norman", rating: 4.6, url: "https://m.media-amazon.com/images/I/41ikQF3HEfL._UX300_PJku-sticker-v8%2CTopRight%2C0%2C-50_.jpg" },
+    { title: "Fairy Tale", author: "Stephen King", rating: 4.7, url: "https://m.media-amazon.com/images/I/510DvZ1WuQL._UX300_PJku-sticker-v8%2CTopRight%2C0%2C-50_.jpg" },
+    { title: "Earth", author: "Tere Liye", rating: 4.5, url: "https://m.media-amazon.com/images/I/41P5HXtxNSL._AC_SF480,480_.jpg" }
   ];
 
   if (isMobileView) {
@@ -33,14 +35,8 @@ const BookReaderUI = () => {
           <Bell className="w-6 h-6" />
         </div>
 
-        <div className="relative mb-6">
-          <Search className="absolute left-3 top-3 text-gray-400 w-5 h-5" />
-          <input
-            type="text"
-            placeholder="Search title, topic or author"
-            className="w-full p-3 pl-10 bg-gray-100 rounded-xl"
-          />
-        </div>
+        {/* Search bar conponent */}
+       <SearchInput />
 
         <div className="mb-6">
           <div className="flex justify-between items-center mb-4">
@@ -49,11 +45,8 @@ const BookReaderUI = () => {
           </div>
           <div className="flex gap-4 overflow-x-auto">
             {books.slice(0, 2).map((book, i) => (
-              <div key={i} className="min-w-[200px] bg-white p-4 rounded-xl shadow">
-                <div className="bg-gray-200 h-32 rounded-lg mb-2"></div>
-                <h3 className="font-semibold">{book.title}</h3>
-                <p className="text-sm text-gray-500">{book.author}</p>
-              </div>
+            //   OnReadDiv
+            <OnReadDiv index={i} title={book.title} author={book.author} url={book.url} />
             ))}
           </div>
         </div>
@@ -128,7 +121,7 @@ const BookReaderUI = () => {
         <div className="grid grid-cols-5 gap-4 mb-8">
           {books.map((book, i) => (
             <div key={i} className="bg-white p-4 rounded-xl shadow">
-              <div className="bg-gray-200 h-40 rounded-lg mb-2"></div>
+                <img className="h-40 rounded-lg mb-2" src={book.url} alt="" />
               <h3 className="font-semibold text-sm">{book.title}</h3>
               <p className="text-xs text-gray-500">{book.author}</p>
               <div className="flex items-center mt-2">
