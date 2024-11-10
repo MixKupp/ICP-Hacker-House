@@ -5,7 +5,7 @@ function BookDiv(props) {
 
   return (
     <div>
-      <div class={`w-[130px] h-[180px] aspect-auto ${props.className}`}>
+      <div class={`w-[130px] h-[180px] aspect-auto flex-shrink-0 w-1/4`}>
         <img
           className="w-full h-full rounded-lg mb-2 flex-auto"
           key={props.id}
@@ -15,8 +15,8 @@ function BookDiv(props) {
       </div>
       <div>
         <h3>{title}</h3>
-        <p className="text-sm text-gray-500" >{props.author}</p>
-        <p>{props.price}</p>
+        <p className="text-sm text-gray-500 py-1" >{props.author}</p>
+        <p className="text-orange-700">{props.price} ICP</p>
       </div>
     </div>
   );

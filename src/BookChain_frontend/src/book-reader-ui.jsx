@@ -80,7 +80,6 @@ const BookReaderUI = () => {
                 author={book.author}
                 price={book.price}
                 url={book.url}
-                className="flex-shrink-0 w-1/4"
               />
             );
           })}
