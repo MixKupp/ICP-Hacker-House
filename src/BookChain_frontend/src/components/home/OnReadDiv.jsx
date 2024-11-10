@@ -12,7 +12,6 @@ function OnReadDiv(props) {
           className="w-full h-full rounded-lg mb-2 flex-auto"
           src={props.url}
           alt=""
-          srcset=""
         />
       </div>
       <div className="flex-auto flex flex-col justify-between pl-4">
@@ -27,3 +26,5 @@ function OnReadDiv(props) {
 }
 
 export default OnReadDiv;
+
+// width 130 height 180
