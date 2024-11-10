@@ -12,7 +12,7 @@ import {
   Play,
   Pause,
 } from "lucide-react";
-import SearchInput from "./components/home/SearchInput";
+import SearchInput from "./components/partial/SearchInput";
 import OnReadDiv from "./components/home/OnReadDiv";
 import BtmNavbar from "./components/partial/BtmNavbar";
 import GerneSection from "./components/partial/GerneSection";
